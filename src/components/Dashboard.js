@@ -5,7 +5,8 @@ import "./style.css";
 import { auth, db, logout } from "../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import Navbar from "react-bootstrap/Navbar";
-import { Container, Nav, NavDropdown } from "react-bootstrap";
+
+import { Button, Container, Nav, NavDropdown } from "react-bootstrap";
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -27,8 +28,7 @@ function Dashboard() {
     fetchUserName();
   }, [user, loading]);
   return (
-      <>
-    
+    <>
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/dashboard">Project Blog</Navbar.Brand>
@@ -37,24 +37,18 @@ function Dashboard() {
             <Nav className="me-auto">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Team</Nav.Link>
-              <NavDropdown title={name} id="basic-nav-dropdown"  className="d-flex">
-                
-                <NavDropdown.Item href="#action/3.2">
-                Logged in as{user?.email}
-                </NavDropdown.Item>                
-                <NavDropdown.Divider />
+              <NavDropdown title="Account" id="basic-nav-dropdown">                
                 <NavDropdown.Item href="#action/3.4">
-                  <button className="dashboard__btn" onClick={logout}>
+                  <Button size="small" className="dashboard__btn" onClick={logout}>
                     Logout
-                  </button>
+                  </Button>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
+        <div style={{color:"white"}}>Logged in as {user?.email}</div>
       </Navbar>
-      
-   
     </>
   );
 }
