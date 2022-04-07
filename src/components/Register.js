@@ -15,7 +15,7 @@ function Register() {
   const navigate = useNavigate();
 
   const register = () => {
-    if (!name) alert("Please enter name");
+    if (!name || !email || !password) alert("Please Fill All Fields");
     registerWithEmailAndPassword(name, email, password);
   };
 
