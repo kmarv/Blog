@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/style.css";
 import { auth, db, logout } from "../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { Avatar } from "antd";
-import { GithubFilled} from '@ant-design/icons';
-import imgM from "../assets/images/2.jpg"
-
+import { GithubFilled } from "@ant-design/icons";
+// import imgM from "../assets/images/2.jpg"
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
@@ -63,14 +62,17 @@ function Dashboard() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#services">
+                <a className="nav-link" href="#project">
                   Project
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#portfolio">
-                  Portfolio
+                <a className="nav-link" href="#team">
+                  Team
                 </a>
+              </li>
+              <li className="nav-item">
+                <Link to={"/postreg"}>Post</Link>
               </li>
               <li className="nav-item">
                 <a
@@ -90,7 +92,7 @@ function Dashboard() {
         <div className="container px-4 px-lg-5 h-100">
           <div className="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
             <div className="col-lg-8 align-self-end">
-              <h1 className="text-white font-weight-bold">BSE22-21 Blog </h1>
+              <h1 className="text-white font-weight-bold"> Blog </h1>
               <h1 className="text-white font-weight-bold">
                 Malaria Parasite Detection Artificial Intelligence{" "}
               </h1>
@@ -101,7 +103,7 @@ function Dashboard() {
                 We are team of students in out final year at Makerere University
                 Undertaking a final Project
               </p>
-              <a className="btn btn-primary btn-xl" href="#about">
+              <a className="btn btn-primary btn-xl" href="#project">
                 Find Out More
               </a>
             </div>
@@ -109,7 +111,7 @@ function Dashboard() {
         </div>
       </header>
       {/* About */}
-      <section className="page-section bg-primary" id="about">
+      <section className="page-section bg-primary" id="project">
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
             <div className="col-lg-8 text-center">
@@ -144,7 +146,7 @@ function Dashboard() {
                 Aim to make use of technologies like AI to further better
                 medical services in our country
               </p>
-              <a class="btn btn-light btn-xl" href="#services">
+              <a class="btn btn-light btn-xl" href="#team">
                 View Team
               </a>
             </div>
@@ -152,7 +154,7 @@ function Dashboard() {
         </div>
       </section>
       {/* <!-- Services--> */}
-      <section class="page-section" id="services">
+      <section class="page-section" id="team">
         <div class="container px-4 px-lg-5">
           <h2 class="text-center mt-0">Development Team</h2>
           <hr class="divider" />
@@ -160,7 +162,7 @@ function Dashboard() {
             <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                 <div class="mb-2">
-                <Avatar size={164} icon={<GithubFilled />} />
+                  <Avatar size={164} icon={<GithubFilled />} />
                 </div>
                 <h3 class="h4 mb-2">Kaaya Marvin</h3>
                 <p class="text-muted mb-0">
@@ -171,7 +173,7 @@ function Dashboard() {
             <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                 <div class="mb-2">
-                <Avatar size={164} icon={<GithubFilled />}/>
+                  <Avatar size={164} icon={<GithubFilled />} />
                 </div>
                 <h3 class="h4 mb-2">Mukwatse Collin</h3>
                 <p class="text-muted mb-0">
@@ -182,7 +184,7 @@ function Dashboard() {
             <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                 <div class="mb-2">
-                <Avatar size={164} icon={<GithubFilled size={64} />}/>
+                  <Avatar size={164} icon={<GithubFilled size={64} />} />
                 </div>
                 <h3 class="h4 mb-2">Nakayenga Viola</h3>
                 <p class="text-muted mb-0">
@@ -193,12 +195,12 @@ function Dashboard() {
             <div class="col-lg-3 col-md-6 text-center">
               <div class="mt-5">
                 <div class="mb-2">
-                {/* <img className="img__p" src={imgM} alt=""/> */}
-                <Avatar size={164} icon={<GithubFilled  />}/>
+                  {/* <img className="img__p" src={imgM} alt=""/> */}
+                  <Avatar size={164} icon={<GithubFilled />} />
                 </div>
                 <h3 class="h4 mb-2">Miiro Henry</h3>
                 <p class="text-muted mb-0">
-                  Backend and frontend Web Devloper  / Software Engineer
+                  Backend and frontend Web Devloper / Software Engineer
                 </p>
               </div>
             </div>
