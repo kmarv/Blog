@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.5",
     "firebase": "^9.6.10",
+    "mdb-ui-kit": "^3.11.0",
     "react": "^18.0.0",
     "react-bootstrap": "^2.2.3",
     "react-dom": "^18.0.0",
