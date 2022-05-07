@@ -34,7 +34,6 @@ function Dashboard() {
   }, [loading, navigate, user]);
   return (
     <body id="page-top">
-      {console.log(".,/,/,/,/,/,/,/,/", name)}
       <nav
         className="navbar navbar-expand-lg navbar-light fixed-top py-3"
         id="mainNav"
@@ -72,7 +71,7 @@ function Dashboard() {
                 </a>
               </li>
               <li className="nav-item">
-                <Link to={"/postreg"}>Post</Link>
+              <Link className="nav-link" to="/postreg">Post</Link>
               </li>
               <li className="nav-item">
                 <a
@@ -146,7 +145,7 @@ function Dashboard() {
                 Aim to make use of technologies like AI to further better
                 medical services in our country
               </p>
-              <a class="btn btn-light btn-xl" href="#team">
+              <a className="btn btn-light btn-xl" href="#team">
                 View Team
               </a>
             </div>
@@ -154,52 +153,52 @@ function Dashboard() {
         </div>
       </section>
       {/* <!-- Services--> */}
-      <section class="page-section" id="team">
-        <div class="container px-4 px-lg-5">
-          <h2 class="text-center mt-0">Development Team</h2>
-          <hr class="divider" />
-          <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-3 col-md-6 text-center">
-              <div class="mt-5">
-                <div class="mb-2">
+      <section className="page-section" id="team">
+        <div className="container px-4 px-lg-5">
+          <h2 className="text-center mt-0">Development Team</h2>
+          <hr className="divider" />
+          <div className="row gx-4 gx-lg-5">
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="mt-5">
+                <div className="mb-2">
                   <Avatar size={164} icon={<GithubFilled />} />
                 </div>
-                <h3 class="h4 mb-2">Kaaya Marvin</h3>
-                <p class="text-muted mb-0">
+                <h3 className="h4 mb-2">Kaaya Marvin</h3>
+                <p className="text-muted mb-0">
                   Lead/Senior Developer/Software engineer
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 text-center">
-              <div class="mt-5">
-                <div class="mb-2">
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="mt-5">
+                <div className="mb-2">
                   <Avatar size={164} icon={<GithubFilled />} />
                 </div>
-                <h3 class="h4 mb-2">Mukwatse Collin</h3>
-                <p class="text-muted mb-0">
+                <h3 className="h4 mb-2">Mukwatse Collin</h3>
+                <p className="text-muted mb-0">
                   Software Developer Backend / Software Engineer
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 text-center">
-              <div class="mt-5">
-                <div class="mb-2">
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="mt-5">
+                <div className="mb-2">
                   <Avatar size={164} icon={<GithubFilled size={64} />} />
                 </div>
-                <h3 class="h4 mb-2">Nakayenga Viola</h3>
-                <p class="text-muted mb-0">
+                <h3 className="h4 mb-2">Nakayenga Viola</h3>
+                <p className="text-muted mb-0">
                   Document Analyst And Requirements Engineer
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 text-center">
-              <div class="mt-5">
-                <div class="mb-2">
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="mt-5">
+                <div className="mb-2">
                   {/* <img className="img__p" src={imgM} alt=""/> */}
                   <Avatar size={164} icon={<GithubFilled />} />
                 </div>
-                <h3 class="h4 mb-2">Miiro Henry</h3>
-                <p class="text-muted mb-0">
+                <h3 className="h4 mb-2">Miiro Henry</h3>
+                <p className="text-muted mb-0">
                   Backend and frontend Web Devloper / Software Engineer
                 </p>
               </div>
@@ -207,12 +206,12 @@ function Dashboard() {
           </div>
         </div>
       </section>
-      <footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5">
-          <div class="small text-center text-muted">
+      <footer className="bg-light py-5">
+        <div className="container px-4 px-lg-5">
+          <div className="small text-center text-muted">
             <b>Logged in as {name}</b>
           </div>
-          <div class="small text-center text-muted">
+          <div className="small text-center text-muted">
             Copyright &copy; 2022 - Marvinco
           </div>
         </div>
