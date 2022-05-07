@@ -8,32 +8,33 @@ const PostForm = (props) => {
   const [person, setPerson] = useState("");
   const [description, setDescription] = useState("");
 
-  const[loader, setLoader] =- useState(false)
+  const [loader, setLoader] = -useState(false);
 
-  const handleSubmit =(e)=>{
-      e.preventDefault()
-      setLoader(true)
-      db.collection('posts').add({
-          title:title,
-          person:person,
-          description:description,
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoader(true);
+    db.collection("posts")
+      .add({
+        title: title,
+        person: person,
+        description: description,
       })
-      .then(() =>{
-          toast.success("Activity Registered SuccessFully")
-          setLoader(false)
+      .then(() => {
+        toast.success("Activity Registered SuccessFully");
+        setLoader(false);
       })
-      .catch((error) =>{
-          toast.error('Activty not registered')
-          setLoader(false)
-      })
+      .catch((error) => {
+        toast.error("Activty not registered");
+        setLoader(false);
+      });
 
-      setTitle("")
-      setPerson("")
-      setDescription("")
-  }
+    setTitle("");
+    setPerson("");
+    setDescription("");
+  };
   return (
-    <div>
-      <Form onSubmit={handleSubmit} >
+    <div className="postreg">
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Title</Form.Label>
           <Form.Control
@@ -65,7 +66,11 @@ const PostForm = (props) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" style={{background:loader?"#ccc":"rgb(2,2,110)"}}>
+        <Button
+          variant="primary"
+          type="submit"
+          style={{ background: loader ? "#ccc" : "rgb(2,2,110)" }}
+        >
           Submit
         </Button>
       </Form>
