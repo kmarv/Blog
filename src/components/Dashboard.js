@@ -7,25 +7,28 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { Avatar } from "antd";
 import { GithubFilled } from "@ant-design/icons";
+import { Button, Card } from "react-bootstrap";
 // import imgM from "../assets/images/2.jpg"
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [show, setShow]= useState(false);
   const navigate = useNavigate();
   const fetchUserName = async () => {
     try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
     } catch (err) {
       console.error(err);
       toast.error("Name not Found");
-      let xname = user?.email.split("@");
+      let xname = user.email.split("@");
       setName(xname[0]);
     }
   };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -71,7 +74,9 @@ function Dashboard() {
                 </a>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="/postreg">Post</Link>
+                <Link className="nav-link" to="/postreg">
+                  Post
+                </Link>
               </li>
               <li className="nav-item">
                 <a
@@ -100,7 +105,7 @@ function Dashboard() {
             <div className="col-lg-8 align-self-baseline">
               <p className="text-white-75 mb-5">
                 We are team of students in out final year at Makerere University
-                Undertaking a final Project
+                Undertaking a final Year Project
               </p>
               <a className="btn btn-primary btn-xl" href="#project">
                 Find Out More
@@ -167,6 +172,8 @@ function Dashboard() {
                 <p className="text-muted mb-0">
                   Lead/Senior Developer/Software engineer
                 </p>
+                <br></br>
+                <Button><a href="#marvin"></a>View Activities</Button>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
@@ -178,6 +185,8 @@ function Dashboard() {
                 <p className="text-muted mb-0">
                   Software Developer Backend / Software Engineer
                 </p>
+                <br></br>
+                <Button><a href="#collin"></a>View Activities</Button>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
@@ -189,23 +198,110 @@ function Dashboard() {
                 <p className="text-muted mb-0">
                   Document Analyst And Requirements Engineer
                 </p>
+                <br></br>
+                <Button ><a onClick className="nav-link" href="#Viola">
+                View Activities
+                </a></Button>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
               <div className="mt-5">
                 <div className="mb-2">
-                  {/* <img className="img__p" src={imgM} alt=""/> */}
                   <Avatar size={164} icon={<GithubFilled />} />
                 </div>
                 <h3 className="h4 mb-2">Miiro Henry</h3>
                 <p className="text-muted mb-0">
                   Backend and frontend Web Devloper / Software Engineer
                 </p>
+                <br></br>
+                <Button><a href="#milo"></a>View Activities</Button>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* activites */}
+      {/* <section className="page-section" id="Viola" >
+        {["Primary", "Secondary"].map((variant) => (
+          <Card
+            bg={variant.toLowerCase()}
+            key={variant}
+            text={variant.toLowerCase() === "light" ? "dark" : "white"}
+            style={{ width: "18rem", display:"flex" }}
+            className="mb-2"
+          >
+            <Card.Header>Task</Card.Header>
+            <Card.Body>
+              <Card.Title>{variant} Card Title </Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </section>
+      <section className="page-section" id="marvin">
+        {["Primary", "Secondary"].map((variant) => (
+          <Card
+            bg={variant.toLowerCase()}
+            key={variant}
+            text={variant.toLowerCase() === "light" ? "dark" : "white"}
+            style={{ width: "18rem", display:"flex" }}
+            className="mb-2"
+          >
+            <Card.Header>Task</Card.Header>
+            <Card.Body>
+              <Card.Title>{variant} Card Title </Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </section>
+      <section className="page-section" id="collin" >
+        {["Primary", "Secondary"].map((variant) => (
+          <Card
+            bg={variant.toLowerCase()}
+            key={variant}
+            text={variant.toLowerCase() === "light" ? "dark" : "white"}
+            style={{ width: "18rem", display:"flex" }}
+            className="mb-2"
+          >
+            <Card.Header>Task</Card.Header>
+            <Card.Body>
+              <Card.Title>{variant} Card Title </Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </section>
+      <section className="page-section" id="milo">
+        {["Primary", "Secondary"].map((variant) => (
+          <Card
+            bg={variant.toLowerCase()}
+            key={variant}
+            text={variant.toLowerCase() === "light" ? "dark" : "white"}
+            style={{ width: "18rem", display:"flex" }}
+            className="mb-2"
+          >
+            <Card.Header>Task</Card.Header>
+            <Card.Body>
+              <Card.Title>{variant} Card Title </Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </section> */}
       <footer className="bg-light py-5">
         <div className="container px-4 px-lg-5">
           <div className="small text-center text-muted">

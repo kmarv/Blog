@@ -1,10 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Reset from "./components/Reset";
 import Dashboard from "./components/Dashboard";
-import PostForm from "./components/PostForm";
+import Activity from "./components/Activity";
+import PostForm from "./components/PostForm"
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/postreg" elememt={<PostForm />} />
+          <Route path="/postreg" element={<PostForm />} />
         </Routes>
       </Router>
     </div>

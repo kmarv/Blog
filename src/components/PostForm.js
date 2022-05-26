@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
+
+
 
 const PostForm = (props) => {
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
   const [description, setDescription] = useState("");
-
+  const [user, loading, error] = useAuthState(auth);
   const [loader, setLoader] = -useState(false);
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loading) return;
+    if (user) navigate("/postreg");
+  }, [user, loading])
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
