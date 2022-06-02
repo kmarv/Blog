@@ -8,12 +8,20 @@ import { toast } from "react-toastify";
 import { Avatar } from "antd";
 import { GithubFilled } from "@ant-design/icons";
 import { Button, Card } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
 // import imgM from "../assets/images/2.jpg"
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
-  const [show, setShow]= useState(false);
+  const [show, setShow] = useState(false);
+  const [fullscreen, setFullscreen] = useState(true);
+
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+
   const navigate = useNavigate();
   const fetchUserName = async () => {
     try {
@@ -157,7 +165,7 @@ function Dashboard() {
           </div>
         </div>
       </section>
-      {/* <!-- Services--> */}
+      {/* <!-- Team--> */}
       <section className="page-section" id="team">
         <div className="container px-4 px-lg-5">
           <h2 className="text-center mt-0">Development Team</h2>
@@ -173,7 +181,9 @@ function Dashboard() {
                   Lead/Senior Developer/Software engineer
                 </p>
                 <br></br>
-                <Button><a href="#marvin"></a>View Activities</Button>
+                <Button type="primary"  onClick={() => handleShow(true)}>
+                  View Activities
+                </Button>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
@@ -186,7 +196,9 @@ function Dashboard() {
                   Software Developer Backend / Software Engineer
                 </p>
                 <br></br>
-                <Button><a href="#collin"></a>View Activities</Button>
+                <Button type="primary" onClick={() => handleShow(true)}>
+                  View Activities
+                </Button>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
@@ -199,9 +211,9 @@ function Dashboard() {
                   Document Analyst And Requirements Engineer
                 </p>
                 <br></br>
-                <Button ><a onClick className="nav-link" href="#Viola">
-                View Activities
-                </a></Button>
+                <Button type="primary" onClick={() => handleShow(true)}>
+                  View Activities
+                </Button>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
@@ -214,7 +226,9 @@ function Dashboard() {
                   Backend and frontend Web Devloper / Software Engineer
                 </p>
                 <br></br>
-                <Button><a href="#milo"></a>View Activities</Button>
+                <Button type="primary" onClick={() => handleShow(true)}>
+                  View Activities
+                </Button>
               </div>
             </div>
           </div>
@@ -302,6 +316,36 @@ function Dashboard() {
           </Card>
         ))}
       </section> */}
+      <>
+        <Modal
+         show={show} fullscreen={fullscreen} onHide={() => setShow(false)}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-custom-modal-styling-title">
+              Individual Activities
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          
+          <Card
+            bg={"Primary".toLowerCase()}
+            text={"Primary".toLowerCase() === "light" ? "dark" : "white"}
+            style={{ width: "13rem", display:"flex" }}
+            className="mb-2"
+          >
+            <Card.Header>Task</Card.Header>
+            <Card.Body>
+              <Card.Title>{"Primary"} Card Title </Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        
+          </Modal.Body>
+        </Modal>
+      </>
       <footer className="bg-light py-5">
         <div className="container px-4 px-lg-5">
           <div className="small text-center text-muted">
