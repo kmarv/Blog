@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "activity": "concept paper",
+    "description": [
+      "It was my responsibility to make sure that as a group we make a clear understanding of the topic during the time of drafting the concept paper",
+      "I called the our supervisor during the time of making the final decision on our topic such that he could be part of guiding us in regards to our topic and concept paper",
+      "As a team we organized a zoom meeting with our supervisor where he advised us to proceed with the  topic.",
+      "I actively took part in writing the concept paper by raising my concerns on how to proceed with the project"
+    ]
+  },
+  {
+    "id": 2,
+    "activity": "SRS",
+    "description": ["I  participated in the overall documentation of the srs particularly in the design of the user requirements, functional, non-functional and performance requirements."," I occasionally contacted our supervisor to support us where necessary by giving us proper guidance."]
+  },
+  {
+    "id": 3,
+    "activity": "data collection plan",
+    "description": [
+      "As a team we composed a data collection plan in accordance to the template that had been provided.",
+      " I actively participated in brainstorming the questions that would be used during the data collection process and also the data collection methods that would be used.  I played a big part in coming up with the questions that we used during data collection. I paid the costs of printing the papers that were used for questioniare and mobilized the the whole data collection practice such that it was successfully completed."
+    ]
+  },
+  {
+    "id": 4,
+    "activity": " data collection tools",
+    "description": [
+      "I took part in coming up with the secondary data collection methods that we were to use for data collection.",
+      " We also completed the data collection tools for various methods."
+    ]
+  },
+  {
+    "id": 5,
+    "activity": " data collection",
+    "description": [
+      " I took part in the writing of the data collection report ",
+      " I actively took part in the interviewing of all the doctors and lab technicians that were involved in the study.",
+      " I also actively participated in looking for the participants that took part in the online interviews.",
+      " I also took part in analysis of all the data the team had gathered from face-to-face interviews, questionnaires and online forms including drawing of graphs, tables, pie charts and use of csv files, in order to draw meaningful relationships and conclusions from the data, which I then included in the final data collection report.",
+      "I also created the Google drive folder where I included all the files, pictures, interview guides, responses from participants and all other information that was used during data collection."
+    ]
+  }
+]

@@ -9,13 +9,36 @@ import { Avatar } from "antd";
 import { GithubFilled } from "@ant-design/icons";
 import { Button, Card } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
+import RecordH from "../assets/JSON/henry.json";
+import RecordV from "../assets/JSON/viola.json";
+import RecordC from "../assets/JSON/collin.json";
+import RecordM from "../assets/JSON/marvin.json";
 // import imgM from "../assets/images/2.jpg"
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [showV, setShowV] = useState(false);
+  const [showC, setShowC] = useState(false);
+  const [showH, setShowH] = useState(false);
   const [show, setShow] = useState(false);
+
   const [fullscreen, setFullscreen] = useState(true);
+
+  function handleShowV(breakpoint) {
+    setFullscreen(breakpoint);
+    setShowV(true);
+  }
+
+  function handleShowC(breakpoint) {
+    setFullscreen(breakpoint);
+    setShowC(true);
+  }
+
+  function handleShowH(breakpoint) {
+    setFullscreen(breakpoint);
+    setShowH(true);
+  }
 
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
@@ -81,11 +104,11 @@ function Dashboard() {
                   Team
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/postreg">
                   Post
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a
                   className=" btn btn-primary"
@@ -181,7 +204,7 @@ function Dashboard() {
                   Lead/Senior Developer/Software engineer
                 </p>
                 <br></br>
-                <Button type="primary"  onClick={() => handleShow(true)}>
+                <Button type="primary" onClick={() => handleShow(true)}>
                   View Activities
                 </Button>
               </div>
@@ -196,7 +219,7 @@ function Dashboard() {
                   Software Developer Backend / Software Engineer
                 </p>
                 <br></br>
-                <Button type="primary" onClick={() => handleShow(true)}>
+                <Button type="primary" onClick={() => handleShowC(true)}>
                   View Activities
                 </Button>
               </div>
@@ -211,7 +234,7 @@ function Dashboard() {
                   Document Analyst And Requirements Engineer
                 </p>
                 <br></br>
-                <Button type="primary" onClick={() => handleShow(true)}>
+                <Button type="primary" onClick={() => handleShowV(true)}>
                   View Activities
                 </Button>
               </div>
@@ -226,7 +249,7 @@ function Dashboard() {
                   Backend and frontend Web Devloper / Software Engineer
                 </p>
                 <br></br>
-                <Button type="primary" onClick={() => handleShow(true)}>
+                <Button type="primary" onClick={() => handleShowH(true)}>
                   View Activities
                 </Button>
               </div>
@@ -235,117 +258,162 @@ function Dashboard() {
         </div>
       </section>
 
-      {/* activites */}
-      {/* <section className="page-section" id="Viola" >
-        {["Primary", "Secondary"].map((variant) => (
-          <Card
-            bg={variant.toLowerCase()}
-            key={variant}
-            text={variant.toLowerCase() === "light" ? "dark" : "white"}
-            style={{ width: "18rem", display:"flex" }}
-            className="mb-2"
+      {
+        <>
+          <Modal
+            show={showH}
+            fullscreen={fullscreen}
+            onHide={() => setShowH(false)}
+            
           >
-            <Card.Header>Task</Card.Header>
-            <Card.Body>
-              <Card.Title>{variant} Card Title </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </section>
-      <section className="page-section" id="marvin">
-        {["Primary", "Secondary"].map((variant) => (
-          <Card
-            bg={variant.toLowerCase()}
-            key={variant}
-            text={variant.toLowerCase() === "light" ? "dark" : "white"}
-            style={{ width: "18rem", display:"flex" }}
-            className="mb-2"
+            <Modal.Header closeButton>
+              <Modal.Title id="example-custom-modal-styling-title">
+                Individual Activities
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{display:"flex"}}>
+              {console.log(RecordH)}
+              {RecordH &&
+                RecordH.map((rec) => {
+                  return (
+                    <Card
+                      bg={"Primary".toLowerCase()}
+                      text={
+                        "Primary".toLowerCase() === "light" ? "dark" : "white"
+                      }
+                      style={{ width: "23rem",margin:"5px", height:"fit-content" }}
+                      className="mb-2"
+                      key={rec.id}
+                    >
+                      <Card.Header>Task</Card.Header>
+                      <Card.Body>
+                        <Card.Title>{rec.activity}</Card.Title>
+
+                        <Card.Text>{rec["description"]}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+            </Modal.Body>
+          </Modal>
+        </>
+      }
+
+      {
+        <>
+          <Modal
+            show={showV}
+            fullscreen={fullscreen}
+            onHide={() => setShowV(false)}
           >
-            <Card.Header>Task</Card.Header>
-            <Card.Body>
-              <Card.Title>{variant} Card Title </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </section>
-      <section className="page-section" id="collin" >
-        {["Primary", "Secondary"].map((variant) => (
-          <Card
-            bg={variant.toLowerCase()}
-            key={variant}
-            text={variant.toLowerCase() === "light" ? "dark" : "white"}
-            style={{ width: "18rem", display:"flex" }}
-            className="mb-2"
+            <Modal.Header closeButton>
+              <Modal.Title id="example-custom-modal-styling-title">
+                Individual Activities
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{display:"flex"}}>
+            
+              {RecordV &&
+                RecordV.map((rec) => {
+                  return (
+                    <Card
+                      bg={"Primary".toLowerCase()}
+                      text={
+                        "Primary".toLowerCase() === "light" ? "dark" : "white"
+                      }
+                      style={{ width: "23rem",margin:"5px",  height:"fit-content" }}
+                      className="mb-2"
+                      key={rec.id}
+                    >
+                      <Card.Header>Task</Card.Header>
+                      <Card.Body>
+                        <Card.Title>{rec.activity}</Card.Title>
+
+                        <Card.Text>{rec["description "]}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+            </Modal.Body>
+          </Modal>
+        </>
+      }
+      {
+        <>
+          <Modal
+            show={showC}
+            fullscreen={fullscreen}
+            onHide={() => setShowC(false)}
           >
-            <Card.Header>Task</Card.Header>
-            <Card.Body>
-              <Card.Title>{variant} Card Title </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </section>
-      <section className="page-section" id="milo">
-        {["Primary", "Secondary"].map((variant) => (
-          <Card
-            bg={variant.toLowerCase()}
-            key={variant}
-            text={variant.toLowerCase() === "light" ? "dark" : "white"}
-            style={{ width: "18rem", display:"flex" }}
-            className="mb-2"
+            <Modal.Header closeButton>
+              <Modal.Title id="example-custom-modal-styling-title">
+                Individual Activities
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{display:"flex"}}>
+              {RecordC &&
+                RecordC.map((rec) => {
+                  return (
+                    <Card
+                      bg={"Primary".toLowerCase()}
+                      text={
+                        "Primary".toLowerCase() === "light" ? "dark" : "white"
+                      }
+                      style={{ width: "23rem",margin:"5px", height:"fit-content" }}
+                      className="mb-2"
+                      key={rec.id}
+                    >
+                      <Card.Header>Task</Card.Header>
+                      <Card.Body>
+                        <Card.Title>{rec.activity}</Card.Title>
+
+                        <Card.Text>{rec["description "]}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+            </Modal.Body>
+          </Modal>
+        </>
+      }
+      {
+        <>
+          <Modal
+            show={show}
+            fullscreen={fullscreen}
+            onHide={() => setShow(false)}
           >
-            <Card.Header>Task</Card.Header>
-            <Card.Body>
-              <Card.Title>{variant} Card Title </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </section> */}
-      <>
-        <Modal
-         show={show} fullscreen={fullscreen} onHide={() => setShow(false)}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="example-custom-modal-styling-title">
-              Individual Activities
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-          
-          <Card
-            bg={"Primary".toLowerCase()}
-            text={"Primary".toLowerCase() === "light" ? "dark" : "white"}
-            style={{ width: "13rem", display:"flex" }}
-            className="mb-2"
-          >
-            <Card.Header>Task</Card.Header>
-            <Card.Body>
-              <Card.Title>{"Primary"} Card Title </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        
-          </Modal.Body>
-        </Modal>
-      </>
+            <Modal.Header closeButton>
+              <Modal.Title id="example-custom-modal-styling-title">
+                Individual Activities
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{display:"flex"}} >
+              {RecordM &&
+                RecordM.map((rec) => {
+                  return (
+                    <Card
+                      bg={"Primary".toLowerCase()}
+                      text={
+                        "Primary".toLowerCase() === "light" ? "dark" : "white"
+                      }
+                      style={{ width: "23rem", margin:"5px", height:"fit-content"}}
+                      className="mb-2"
+                      key={rec.id}
+                    >
+                      <Card.Header>Task</Card.Header>
+                      <Card.Body>
+                        <Card.Title>{rec.activity}</Card.Title>
+
+                        <Card.Text>{rec["description "]}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+            </Modal.Body>
+          </Modal>
+        </>
+      }
       <footer className="bg-light py-5">
         <div className="container px-4 px-lg-5">
           <div className="small text-center text-muted">
