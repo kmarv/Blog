@@ -1,0 +1,35 @@
+[
+    { "id": 1,
+      "activity": " CONCEPT PAPER",
+      "description ": [
+        "Researched on project ideas to focus on. Wrote the concept Paper Document"
+      ]
+    },
+    { "id": 2,
+      "activity": "SRS",
+      "description ": [
+        "Wrote chapters that include The Overall Description, Specific Requirements "
+      ]
+    },
+    {
+      "id": 3,
+      "activity": " DATA COLLECTION PLAN",
+      "description ": [
+       "Formulated possible Data collections Tools that were put up for discussion as a group to be wriitten in data collection plan"
+      ]
+    },
+    { "id": 4,
+      "activity": "DATA COLLECTION TOOLS",
+      "description ": [
+        "Created google forms that were generated from the data tools"
+      ]
+    },
+    {
+      "id": 5,
+      "activity": " Blog ",
+      "description ": [
+        "Designed and coded the Project blog. Updated the blog with The activities of Each Individual for Semester"
+      ]
+    }
+  ]
+  
