@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route path="/postreg" element={<PostForm />} />
+          {/* <Route path="/postreg" element={<PostForm />} /> */}
         </Routes>
       </Router>
     </div>

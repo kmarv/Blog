@@ -46,26 +46,26 @@ function Dashboard() {
   }
 
   const navigate = useNavigate();
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, "users"), where("uid", "==", user.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.name);
-    } catch (err) {
-      // console.error(err);
-      toast.error("Name not Found");
-      let xname = user.email.split("@");
-      setName(xname[0]);
-    }
-  };
+  // const fetchUserName = async () => {
+  //   try {
+  //     const q = query(collection(db, "users"), where("uid", "==", user.uid));
+  //     const doc = await getDocs(q);
+  //     const data = doc.docs[0].data();
+  //     setName(data.name);
+  //   } catch (err) {
+  //     // console.error(err);
+  //     toast.error("Name not Found");
+  //     let xname = user.email.split("@");
+  //     setName(xname[0]);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (loading) return;
-    if (!user) return navigate("/");
-    fetchUserName();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading, navigate, user]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   if (!user) return navigate("/");
+  //   fetchUserName();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [loading, navigate, user]);
   return (
     <body id="page-top">
       <nav
