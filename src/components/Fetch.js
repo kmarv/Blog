@@ -42,7 +42,7 @@ const Fetch = () => {
 
 // Define how each display entry will be structured
 const Frame = ({ details, author, activity }) => {
-  console.log(course + " " + name + " " + age);
+  // console.log(course + " " + name + " " + age);
   return (
     <center>
       <div className="div">

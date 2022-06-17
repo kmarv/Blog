@@ -53,7 +53,7 @@ function Dashboard() {
       const data = doc.docs[0].data();
       setName(data.name);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       toast.error("Name not Found");
       let xname = user.email.split("@");
       setName(xname[0]);
@@ -272,7 +272,7 @@ function Dashboard() {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body style={{display:"flex"}}>
-              {console.log(RecordH)}
+             
               {RecordH &&
                 RecordH.map((rec) => {
                   return (
